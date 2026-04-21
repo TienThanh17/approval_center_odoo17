@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ======================== LIST VIEW ======================== -->
+    <record id="view_approval_request_list" model="ir.ui.view">
+        <field name="name">approval.request.list</field>
+        <field name="model">approval.request</field>
+        <field name="arch" type="xml">
+            <tree string="Approval Requests" decoration-success="state == 'approved'"
+                  decoration-warning="state == 'waiting'"
+                  decoration-danger="state in ('cancelled', 'rejected')"
+                  decoration-muted="state == 'draft'">
+                <field name="name" />
+                <!-- FIX [UX]: Hiển thị res_name trực tiếp -->
+                <field name="res_name" string="Record" />
+                <field name="model" optional="hide"/>
+                <field name="requester_id" />
+                <field name="approver_ids" widget="many2many_tags" />
+                <field name="approved_by_ids" widget="many2many_tags" optional="show"/>
+                <field name="deadline" optional="show"/>
+                <field name="approval_date" optional="hide"/>
+                <field name="state" decoration-success="state == 'approved'"
+                    decoration-warning="state == 'waiting'"
+                    decoration-danger="state in ('cancelled', 'rejected')"
+                    decoration-muted="state == 'draft'" widget="badge" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- ======================== FORM VIEW ======================== -->
+    <record id="view_approval_request_form" model="ir.ui.view">
+        <field name="name">approval.request.form</field>
+        <field name="model">approval.request</field>
+        <field name="arch" type="xml">
+            <form string="Approval Request">
+                <header>
+                    <!-- Approve: approver thấy khi state waiting -->
+                    <button name="action_approve_request" type="object" string="Approve"
+                            class="btn-success"
+                            invisible="state != 'waiting'"
+                            groups="approval_center.group_approval_approver"
+                            confirm="Are you sure you want to approve this request?"/>
+
+                    <!-- Reject: approver thấy khi state waiting -->
+                    <button name="action_reject_request" type="object" string="Reject"
+                            class="btn-danger"
+                            invisible="state != 'waiting'"
+                            groups="approval_center.group_approval_approver"
+                            confirm="Are you sure you want to reject this request?"/>
+
+                    <!-- FIX [Missing]: Nút Cancel -->
+                    <button name="action_cancel" type="object" string="Cancel"
+                            class="btn-secondary"
+                            invisible="state not in ('draft', 'waiting')"
+                            confirm="Are you sure you want to cancel this approval request?"/>
+                    
+                    <!-- Withdraw: approver thấy khi state approved hoặc rejected -->
+                    <button name="action_withdraw" type="object" string="Withdraw"
+                            class="btn-warning"
+                            invisible="state not in ('approved', 'rejected')"
+                            groups="approval_center.group_approval_approver"
+                            confirm="This will revert the request back to Waiting. Continue?"/>
+
+                    <!-- Back to Draft: requester thấy khi state cancelled -->
+                    <button name="action_back_to_draft" type="object" string="Back to Draft"
+                            class="btn-secondary"
+                            invisible="state != 'cancelled'"
+                            groups="approval_center.group_approval_approver"
+                            confirm="Are you sure you want to revert this request to Draft?"/>
+
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="draft,waiting,approved,rejected" />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="action_open_source_record"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-external-link"
+                            string="Open Source"
+                        />
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" />
+                        <h1>
+                            <field name="name" readonly="1" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Source">
+                            <!-- FIX [UX]: Hiển thị tên record nguồn rõ ràng -->
+                            <field name="res_name" string="Source Record" readonly="1"/>
+                            <field name="model" readonly="1" />
+                            <field name="config_id" readonly="1" />
+                        </group>
+                        <group string="People">
+                            <field name="requester_id" readonly="1" />
+                            <field name="approver_ids" widget="many2many_tags" readonly="1" />
+                            <field name="approved_by_ids" widget="many2many_tags" readonly="1"
+                                   invisible="not approved_by_ids"/>
+                            <field name="rejected_by_id" readonly="1"
+                                   invisible="not rejected_by_id"/>
+                        </group>
+                    </group>
+                    <group string="Timing">
+                        <field name="deadline"/>
+                        <field name="approval_date" readonly="1" invisible="not approval_date"/>
+                        <field name="require_all_approvers" readonly="1"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- FIX [UX]: KANBAN VIEW -->
+    <record id="view_approval_request_kanban" model="ir.ui.view">
+        <field name="name">approval.request.kanban</field>
+        <field name="model">approval.request</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column" default_group_by="state" default_order="create_date desc" 
+                    group_create="false" group_edit="false" group_delete="false" 
+                    records_draggable="false" quick_create="false">
+                <field name="name"/>
+                <field name="res_name"/>
+                <field name="requester_id"/>
+                <field name="approver_ids"/>
+                <field name="state"/>
+                <field name="deadline"/>
+                 <templates>
+                    <t t-name="card">
+                        <div class="ribbon ribbon-top-right" invisible="state not in ['waiting', 'approved', 'rejected', 'cancelled']">
+                            <field name="state" t-if="record.state.raw_value == 'waiting'" class="text-bg-info"/>
+                            <field name="state" t-if="record.state.raw_value == 'approved'" class="text-bg-success"/>
+                            <field name="state" t-if="record.state.raw_value == 'rejected'" class="text-bg-danger"/>
+                            <field name="state" t-if="record.state.raw_value == 'cancelled'" class="text-bg-warning"/>
+                        </div>
+                        <field name="name" class="fw-bolder fs-5"/>
+                        <field name="res_name" class="text-muted"/>
+                        
+                        <div class="mt-2 d-flex align-items-center">
+                            <strong class="me-2 text-muted">Requester: </strong>
+                            <field name="requester_id" widget="many2one_avatar_user"/>
+                        </div>
+                        
+                        <footer class="pt-2">
+                            <div class="d-flex align-items-center w-100">
+                                <strong class="me-2 text-muted">Approvers: </strong>
+                                <field name="approver_ids" widget="many2many_avatar_user" readonly="1"/>
+                            </div>
+                        </footer>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- FIX [UX]: SEARCH VIEW với filters hữu ích -->
+    <record id="view_approval_request_search" model="ir.ui.view">
+        <field name="name">approval.request.search</field>
+        <field name="model">approval.request</field>
+        <field name="arch" type="xml">
+            <search string="Search Approval Requests">
+                <field name="name" string="Approval Name"/>
+                <field name="res_name" string="Source Record"/>
+                <field name="requester_id"/>
+                <field name="approver_ids" string="Approver"/>
+
+                <!-- FIX [UX]: Filter "Cần tôi duyệt" -->
+                <filter name="my_to_approve" string="Waiting for My Approval"
+                        domain="[('approver_ids', 'in', [uid]), ('state', '=', 'waiting')]"/>
+                <filter name="submitted_by_me" string="Submitted by Me"
+                        domain="[('requester_id', '=', uid)]"/>
+                <separator/>
+                <filter name="state_waiting" string="Waiting"
+                        domain="[('state', '=', 'waiting')]"/>
+                <filter name="state_approved" string="Approved"
+                        domain="[('state', '=', 'approved')]"/>
+                <filter name="state_rejected" string="Rejected"
+                        domain="[('state', '=', 'rejected')]"/>
+                <filter name="overdue" string="Overdue"
+                        domain="[('deadline', '&lt;', context_today().strftime('%Y-%m-%d')), ('state', '=', 'waiting')]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_approver" string="Approver" context="{'group_by': 'approver_ids'}"/>
+                    <filter name="group_requester" string="Requester" context="{'group_by': 'requester_id'}"/>
+                    <filter name="group_config" string="Approval Type" context="{'group_by': 'config_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="approval_request_action" model="ir.actions.act_window">
+        <field name="name">Approval Requests</field>
+        <field name="res_model">approval.request</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="search_view_id" ref="view_approval_request_search"/>
+        <!-- Default: hiện các request liên quan đến user hiện tại -->
+        <field name="domain">[('approver_ids', 'in', [uid])]</field>
+        <field name="context">{'search_default_my_to_approve': 1}</field>
+    </record>
+
+    <!-- FIX [UX]: Action riêng "Requests I Submitted" -->
+    <record id="approval_request_my_action" model="ir.actions.act_window">
+        <field name="name">My Approval Requests</field>
+        <field name="res_model">approval.request</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="view_approval_request_search"/>
+        <field name="domain">[('requester_id', '=', uid)]</field>
+        <field name="context">{'search_default_submitted_by_me': 1}</field>
+    </record>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_approval_request_user,approval.request user,model_approval_request,approval_center.group_approval_user,1,1,1,0
+access_approval_config_user,approval.config user,model_approval_config,approval_center.group_approval_user,1,0,0,0
+
+access_approval_request_approver,approval.request approver,model_approval_request,approval_center.group_approval_approver,1,1,1,1
+access_approval_config_approver,approval.config approver,model_approval_config,approval_center.group_approval_approver,1,1,1,1

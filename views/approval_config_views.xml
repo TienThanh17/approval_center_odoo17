@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_approval_config_list" model="ir.ui.view">
+        <field name="name">approval.config.list</field>
+        <field name="model">approval.config</field>
+        <field name="arch" type="xml">
+            <tree string="Approval Configurations">
+                <field name="name" />
+                <field name="model_id" />
+                <field name="view_id" />
+                <field name="require_all_approvers" widget="boolean_toggle"/>
+                <field name="approver_ids" widget="many2many_tags" />
+                <field name="state" decoration-success="state == 'confirmed'"
+                       decoration-muted="state == 'draft'" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_approval_config_form" model="ir.ui.view">
+        <field name="name">approval.config.form</field>
+        <field name="model">approval.config</field>
+        <field name="arch" type="xml">
+            <form string="Approval Configuration">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm"
+                            class="btn-primary" invisible="state != 'draft'" />
+                    <button name="action_draft" type="object" string="Reset to Draft"
+                            class="btn-secondary" invisible="state != 'confirmed'"
+                            confirm="Resetting will remove the injected view. Continue?"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed" />
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Purchase Order Approval"/></h1>
+                    </div>
+                    <group>
+                        <group string="Target">
+                            <field name="model_id" />
+                            <!-- FIX [Technical]: view_id domain động theo model_id -->
+                            <field name="view_id"
+                                   domain="[('type', '=', 'form'), ('model', '=', model_id_name)]"
+                                   invisible="not model_id"/>
+                            <field name="model_id_name" invisible="1"/>
+                        </group>
+                        <group string="Approvers">
+                            <field name="approver_ids" widget="many2many_tags"
+                                   options="{'no_create': True}"/>
+                            <!-- FIX [Missing]: require_all_approvers -->
+                            <field name="require_all_approvers" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <group string="Generated Metadata" invisible="state != 'confirmed'">
+                        <field name="submit_server_action_id" readonly="1" />
+                        <field name="approve_server_action_id" readonly="1" />
+                        <field name="reject_server_action_id" readonly="1" />
+                        <field name="inherit_view_id" readonly="1" />
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="approval_config_action" model="ir.actions.act_window">
+        <field name="name">Approval Configurations</field>
+        <field name="res_model">approval.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

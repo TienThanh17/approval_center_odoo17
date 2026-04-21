@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="approval_menu_root" name="Approvals" sequence="90"
+              groups="approval_center.group_approval_user"/>
+
+    <!-- FIX [UX]: "To Approve" — request cần user hiện tại duyệt -->
+    <menuitem id="approval_request_pending_menu"
+              name="To Approve"
+              parent="approval_menu_root"
+              action="approval_center.approval_request_action"
+              sequence="10"
+              groups="approval_center.group_approval_approver"/>
+
+    <!-- FIX [UX]: "My Requests" — request do user tạo -->
+    <menuitem id="approval_request_my_menu"
+              name="My Requests"
+              parent="approval_menu_root"
+              action="approval_center.approval_request_my_action"
+              sequence="20"
+              groups="approval_center.group_approval_user"/>
+
+    <menuitem id="approval_config_menu"
+              name="Configurations"
+              parent="approval_menu_root"
+              action="approval_center.approval_config_action"
+              sequence="30"
+              groups="approval_center.group_approval_approver"/>
+</odoo>
