@@ -91,7 +91,7 @@ class ApprovalRequest(models.Model):
     )
 
     @api.model
-    def _read_group_states(self, stages, domain):
+    def _read_group_states(self, stages, domain, order):
         return ["draft", "waiting", "approved", "rejected", "cancelled"]
 
     # -------------------------------------------------------------------------
