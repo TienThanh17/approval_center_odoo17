@@ -3,6 +3,7 @@
     "summary": "Generic, reusable approval workflow applicable to any model",
     "version": "17.0.2.0.0",
     "category": "Tools",
+    'images': ['static/description/icon.png'],
     "license": "LGPL-3",
     "author": "ADEC SOL",
     "depends": [

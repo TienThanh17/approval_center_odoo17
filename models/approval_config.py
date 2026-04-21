@@ -301,14 +301,12 @@ class ApprovalConfig(models.Model):
                 ' string="{label}"/>'
             ).format(va_id=va_id, label=label, inv=invisible_expr, css=css_extra)
 
-        view_waiting_btn  = _view_btn("⏳ Waiting",   "approval_state != 'waiting'",   "text-warning")
-        view_approved_btn = _view_btn("✅ Approved",  "approval_state != 'approved'",  "text-success")
-        view_rejected_btn = _view_btn("❌ Rejected",  "approval_state != 'rejected'",  "text-danger")
-        view_cancel_btn   = _view_btn("🚫 Cancelled", "approval_state != 'cancelled'", "text-danger")
+        view_waiting_btn = _view_btn("⏳ Waiting", "approval_state != 'waiting'", "text-warning")
+        view_approved_btn = _view_btn("✅ Approved", "approval_state != 'approved'", "text-success")
+        view_rejected_btn = _view_btn("❌ Rejected", "approval_state != 'rejected'", "text-danger")
+        view_cancel_btn = _view_btn("🚫 Cancelled", "approval_state != 'cancelled'", "text-danger")
 
-        arch_db = (
-            "<data>\n"
-            "  <xpath expr=\"//form/header\" position=\"inside\">\n"
+        buttons_xml = (
             "    <field name=\"approval_state\" invisible=\"1\"/>\n"
             "    <field name=\"approval_is_approver\" invisible=\"1\"/>\n"
             "    <field name=\"approval_approved_by\" invisible=\"1\"/>\n"
@@ -319,8 +317,6 @@ class ApprovalConfig(models.Model):
             "    {view_approved}\n"
             "    {view_rejected}\n"
             "    {view_cancel}\n"
-            "  </xpath>\n"
-            "</data>"
         ).format(
             submit=submit_btn, approve=approve_btn, reject=reject_btn,
             view_waiting=view_waiting_btn,
@@ -328,6 +324,35 @@ class ApprovalConfig(models.Model):
             view_rejected=view_rejected_btn,
             view_cancel=view_cancel_btn,
         )
+
+        # Kiểm tra view gốc có thẻ <header> không
+        source_view = self.view_id
+        try:
+            arch_tree = etree.fromstring(source_view.arch_db.encode("utf-8"))
+            has_header = bool(arch_tree.find(".//header"))
+        except Exception:
+            has_header = False
+
+        if has_header:
+            # Trường hợp bình thường: inject vào bên trong <header> có sẵn
+            arch_db = (
+                "<data>\n"
+                "  <xpath expr=\"//form/header\" position=\"inside\">\n"
+                "{buttons}"
+                "  </xpath>\n"
+                "</data>"
+            ).format(buttons=buttons_xml)
+        else:
+            # Fallback: view không có <header> → tạo <header> mới và đặt trước phần tử đầu tiên trong <form>
+            arch_db = (
+                "<data>\n"
+                "  <xpath expr=\"//form/*[1]\" position=\"before\">\n"
+                "    <header>\n"
+                "{buttons}"
+                "    </header>\n"
+                "  </xpath>\n"
+                "</data>"
+            ).format(buttons=buttons_xml)
 
         view_name = "approval_center.inject.%s.%d" % (self.model_id.model, self.id)
         vals = {
