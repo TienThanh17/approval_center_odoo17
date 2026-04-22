@@ -38,24 +38,25 @@
                     </div>
                     <group>
                         <group string="Target">
-                            <field name="model_id"/>
+                            <field name="model_id" readonly="state == 'confirmed'"/>
                             <!-- FIX [Technical]: view_id domain động theo model_id -->
                             <field name="view_id"
                                    domain="[('type', '=', 'form'), ('model', '=', model_id_name)]"
-                                   invisible="not model_id"/>
+                                   invisible="not model_id" readonly="state == 'confirmed'"/>
                             <field name="model_id_name" invisible="1"/>
                         </group>
                         <group string="Approvers">
-                            <field name="approver_ids" widget="many2many_tags"
+                            <field name="approver_ids" widget="many2many_tags" readonly="state == 'confirmed'"
                                    options="{'no_create': True}"/>
                             <!-- FIX [Missing]: require_all_approvers -->
-                            <field name="require_all_approvers" widget="boolean_toggle"/>
+                            <field name="require_all_approvers" widget="boolean_toggle" readonly="state == 'confirmed'"/>
                         </group>
                     </group>
                     <group string="Generated Metadata" invisible="state != 'confirmed'">
                         <field name="submit_server_action_id" readonly="1"/>
                         <field name="approve_server_action_id" readonly="1"/>
                         <field name="reject_server_action_id" readonly="1"/>
+                        <field name="view_approvals_server_action_id" readonly="1"/>
                         <field name="inherit_view_id" readonly="1"/>
                     </group>
                 </sheet>
