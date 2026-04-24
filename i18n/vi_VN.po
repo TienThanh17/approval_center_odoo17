@@ -1,0 +1,990 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* approval_center
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-24 03:20+0000\n"
+"PO-Revision-Date: 2026-04-24 03:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "(Deleted)"
+msgstr "(Đã xóa)"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_kanban
+msgid "<strong class=\"me-2 text-muted\">Approvers: </strong>"
+msgstr ""
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_kanban
+msgid "<strong class=\"me-2 text-muted\">Requester: </strong>"
+msgstr ""
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "A pending approval request already exists for this record."
+msgstr "Đã tồn tại yêu cầu phê duyệt đang chờ xử lý đối với bản ghi này."
+
+#. module: approval_center
+#: model:ir.module.category,name:approval_center.module_category_approval_center
+msgid "ADEC SOL Approval Center"
+msgstr "Trung tâm phê duyệt ADEC SOL"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__message_needaction
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__message_needaction
+msgid "Action Needed"
+msgstr "Hành động cần thiết"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__activity_ids
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__activity_ids
+msgid "Activities"
+msgstr "Hoạt động"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__activity_exception_decoration
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Trang trí ngoại lệ hoạt động"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__activity_state
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__activity_state
+msgid "Activity State"
+msgstr "Trạng thái hoạt động"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__activity_type_icon
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Biểu tượng Loại Hoạt động"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "AdecSol Approve (%s)"
+msgstr "AdecSol Phê duyệt (%s)"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "AdecSol Reject (%s)"
+msgstr "Từ chối AdecSol (%s)"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "AdecSol Submit Approval (%s)"
+msgstr "AdecSol Gửi phê duyệt (%s)"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "AdecSol View Approvals (%s)"
+msgstr "AdecSol Xem phê duyệt (%s)"
+
+#. module: approval_center
+#: model:ir.model.constraint,message:approval_center.constraint_approval_config_approval_config_unique_model_id
+msgid ""
+"An approval configuration already exists for this model. Each model can only"
+" have one configuration."
+msgstr ""
+"Cấu hình phê duyệt đã tồn tại cho mô hình này. Mỗi mô hình chỉ có thể có một"
+" cấu hình."
+
+#. module: approval_center
+#: model:res.groups,name:approval_center.group_approval_approver
+msgid "Approval Approver"
+msgstr "Người phê duyệt"
+
+#. module: approval_center
+#: model:ir.model,name:approval_center.model_approval_config
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_config_form
+msgid "Approval Configuration"
+msgstr "Cấu hình phê duyệt"
+
+#. module: approval_center
+#: model:ir.actions.act_window,name:approval_center.approval_config_action
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_config_list
+msgid "Approval Configurations"
+msgstr "Cấu hình phê duyệt"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__name
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_search
+msgid "Approval Name"
+msgstr "Tên phê duyệt"
+
+#. module: approval_center
+#: model:ir.model,name:approval_center.model_approval_request
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_form
+msgid "Approval Request"
+msgstr "Yêu cầu phê duyệt"
+
+#. module: approval_center
+#: model:ir.actions.act_window,name:approval_center.approval_request_action
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_list
+msgid "Approval Requests"
+msgstr "Yêu cầu phê duyệt"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Approval Required: %s"
+msgstr "Yêu cầu phê duyệt: %s"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_search
+msgid "Approval Type"
+msgstr "Loại phê duyệt"
+
+#. module: approval_center
+#: model:res.groups,name:approval_center.group_approval_user
+msgid "Approval User"
+msgstr "Người dùng"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Approval request cancelled by %s."
+msgstr "Yêu cầu phê duyệt bị hủy bởi %s."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Approval request reverted to draft by %s."
+msgstr "Yêu cầu phê duyệt được hoàn nguyên về bản nháp trước %s."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Approval request withdrawn by %s and reverted to waiting."
+msgstr ""
+"Yêu cầu phê duyệt được rút lại bởi %s và hoàn nguyên về trạng thái chờ."
+
+#. module: approval_center
+#: model:ir.ui.menu,name:approval_center.approval_menu_root
+msgid "Approvals"
+msgstr "Phê duyệt"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_form
+#, python-format
+msgid "Approve"
+msgstr "Phê duyệt"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__approve_condition_domain
+msgid "Approve Condition"
+msgstr "Điều kiện phê duyệt"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__approve_server_action_id
+msgid "Approve Server Action"
+msgstr "Phê duyệt hành động của máy chủ"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#: model:ir.model.fields.selection,name:approval_center.selection__approval_request__state__approved
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_search
+#, python-format
+msgid "Approved"
+msgstr "Đã phê duyệt"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__approved_by_ids
+msgid "Approved By"
+msgstr "Được phê duyệt bởi"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Approved by %s. Waiting for: %s"
+msgstr "Được phê duyệt bởi %s. Đang chờ: %s"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__approval_date
+msgid "Approved/Rejected On"
+msgstr "Đã phê duyệt/Từ chối Bật"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_search
+msgid "Approver"
+msgstr "Người phê duyệt"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__approver_ids
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__approver_ids
+msgid "Approvers"
+msgstr "Người phê duyệt"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_form
+msgid "Are you sure you want to approve this request?"
+msgstr "Bạn có chắc chắn muốn phê duyệt yêu cầu này không?"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_form
+msgid "Are you sure you want to cancel this approval request?"
+msgstr "Bạn có chắc chắn muốn hủy yêu cầu phê duyệt này không?"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_form
+msgid "Are you sure you want to reject this request?"
+msgstr "Bạn có chắc chắn muốn từ chối yêu cầu này không?"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_form
+msgid "Are you sure you want to revert this request to Draft?"
+msgstr "Bạn có chắc chắn muốn hoàn nguyên yêu cầu này về Bản nháp không?"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__message_attachment_count
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số lượng tệp đính kèm"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_form
+msgid "Back to Draft"
+msgstr "Quay lại Bản nháp"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_form
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#: model:ir.model.fields.selection,name:approval_center.selection__approval_request__state__cancelled
+#, python-format
+msgid "Cancelled"
+msgstr "Đã hủy"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_config_form
+msgid "Condition"
+msgstr "Điều kiện"
+
+#. module: approval_center
+#: model:ir.model.fields,help:approval_center.field_approval_config__submit_condition_domain
+msgid ""
+"Condition domain for the record to be submitted. Leave empty or [] means no "
+"condition."
+msgstr ""
+"Domain điều kiện để record có thể được submit. "
+"Để trống hoặc [] nghĩa là không có điều kiện."
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__config_id
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#. module: approval_center
+#: model:ir.ui.menu,name:approval_center.approval_config_menu
+msgid "Configurations"
+msgstr "Cấu hình"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_config_form
+msgid "Confirm"
+msgstr "Xác nhận"
+
+#. module: approval_center
+#: model:ir.model.fields.selection,name:approval_center.selection__approval_config__state__confirmed
+msgid "Confirmed"
+msgstr "Đã xác nhận"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__create_uid
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__create_date
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__create_date
+msgid "Created on"
+msgstr "Được tạo vào"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__deadline
+msgid "Deadline"
+msgstr "Hạn chót"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__display_name
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: approval_center
+#: model:ir.model.fields,help:approval_center.field_approval_config__approve_condition_domain
+msgid ""
+"Domain definition for fields to be updated after approval. Each leaf (field,"
+" '=', value) will be written to the source record."
+msgstr ""
+"Domain định nghĩa các field sẽ được cập nhật sau khi approve. "
+"Mỗi leaf (field, '=', value) sẽ được write lên record nguồn."
+
+#. module: approval_center
+#: model:ir.model.fields.selection,name:approval_center.selection__approval_config__state__draft
+#: model:ir.model.fields.selection,name:approval_center.selection__approval_request__state__draft
+msgid "Draft"
+msgstr "Bản nháp"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_config_form
+msgid "Fields to Update"
+msgstr "Các trường cần cập nhật"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__message_follower_ids
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__message_follower_ids
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__message_partner_ids
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Người theo dõi (Đối tác)"
+
+#. module: approval_center
+#: model:ir.model.fields,help:approval_center.field_approval_config__activity_type_icon
+#: model:ir.model.fields,help:approval_center.field_approval_request__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Phông chữ biểu tượng tuyệt vời, ví dụ: nhiệm vụ fa"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__view_id
+msgid "Form View"
+msgstr "Chế độ xem biểu mẫu"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_config_form
+msgid "Generated Metadata"
+msgstr "Siêu dữ liệu đã tạo"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_search
+msgid "Group By"
+msgstr "Nhóm theo"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__has_message
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__has_message
+msgid "Has Message"
+msgstr "Có tin nhắn"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__id
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__id
+msgid "ID"
+msgstr ""
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__activity_exception_icon
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__activity_exception_icon
+msgid "Icon"
+msgstr "Biểu tượng"
+
+#. module: approval_center
+#: model:ir.model.fields,help:approval_center.field_approval_config__activity_exception_icon
+#: model:ir.model.fields,help:approval_center.field_approval_request__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Biểu tượng để biểu thị một hoạt động ngoại lệ."
+
+#. module: approval_center
+#: model:ir.model.fields,help:approval_center.field_approval_config__message_needaction
+#: model:ir.model.fields,help:approval_center.field_approval_request__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Nếu được chọn, bạn cần chú ý đến các tin nhắn mới."
+
+#. module: approval_center
+#: model:ir.model.fields,help:approval_center.field_approval_config__message_has_error
+#: model:ir.model.fields,help:approval_center.field_approval_request__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Nếu được chọn, một số tin nhắn có lỗi gửi."
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__inherit_view_id
+msgid "Injected Inherited View"
+msgstr "Chế độ xem được kế thừa được chèn"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__message_is_follower
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__message_is_follower
+msgid "Is Follower"
+msgstr "Là người theo dõi"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__write_uid
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__write_date
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__message_has_error
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__message_has_error
+msgid "Message Delivery error"
+msgstr "Lỗi gửi tin nhắn"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__message_ids
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__message_ids
+msgid "Messages"
+msgstr "Tin nhắn"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Missing model or res_id to open source record."
+msgstr "Thiếu mô hình hoặc res_id đối với bản ghi nguồn mở."
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__model_id
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__model
+msgid "Model"
+msgstr "Mô hình"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__model_id_name
+msgid "Model Name (tech)"
+msgstr "Tên mô hình (công nghệ)"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "Model and View are required."
+msgstr "Bắt buộc phải có Mô hình và View."
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__my_activity_date_deadline
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Hạn chót hoạt động của tôi"
+
+#. module: approval_center
+#: model:ir.actions.act_window,name:approval_center.approval_request_my_action
+msgid "My Approval Requests"
+msgstr "Yêu cầu phê duyệt của tôi"
+
+#. module: approval_center
+#: model:ir.ui.menu,name:approval_center.approval_request_my_menu
+msgid "My Requests"
+msgstr "Yêu cầu của tôi"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__activity_date_deadline
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Hạn chót cho hoạt động tiếp theo"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__activity_summary
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__activity_summary
+msgid "Next Activity Summary"
+msgstr "Tóm tắt hoạt động tiếp theo"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__activity_type_id
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__activity_type_id
+msgid "Next Activity Type"
+msgstr "Loại hoạt động tiếp theo"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "No pending approval request found for this record."
+msgstr "Không tìm thấy yêu cầu phê duyệt đang chờ xử lý nào cho bản ghi này."
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__message_needaction_counter
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Số lượng hành động"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__message_has_error_counter
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__message_has_error_counter
+msgid "Number of errors"
+msgstr "Số lỗi"
+
+#. module: approval_center
+#: model:ir.model.fields,help:approval_center.field_approval_config__message_needaction_counter
+#: model:ir.model.fields,help:approval_center.field_approval_request__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Số lượng tin nhắn yêu cầu hành động"
+
+#. module: approval_center
+#: model:ir.model.fields,help:approval_center.field_approval_config__message_has_error_counter
+#: model:ir.model.fields,help:approval_center.field_approval_request__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Số lượng tin nhắn có lỗi gửi"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Only approved or rejected requests can be withdrawn."
+msgstr ""
+"Chỉ những yêu cầu được phê duyệt hoặc bị từ chối mới có thể được rút lại."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Only approvers can cancel this request."
+msgstr "Chỉ người phê duyệt mới có thể hủy yêu cầu này."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Only approvers can withdraw this request."
+msgstr "Chỉ người phê duyệt mới có thể rút lại yêu cầu này."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Only cancelled requests can be reverted to draft."
+msgstr "Chỉ những yêu cầu đã hủy mới có thể được hoàn nguyên về bản nháp."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "Only draft configurations can be confirmed."
+msgstr "Chỉ có thể xác nhận cấu hình dự thảo."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Only draft or waiting requests can be cancelled."
+msgstr "Chỉ có thể hủy các yêu cầu nháp hoặc đang chờ."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Only the requester or an approver can revert this request to draft."
+msgstr ""
+"Chỉ người yêu cầu hoặc người phê duyệt mới có thể hoàn nguyên yêu cầu này về"
+" bản nháp."
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_form
+msgid "Open Source"
+msgstr "Mở bản ghi"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_config_form
+msgid "POST-APPROVAL UPDATES"
+msgstr "CẬP NHẬT SAU PHÊ DUYỆT"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "Pending Approval"
+msgstr "Chờ phê duyệt"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_form
+msgid "People"
+msgstr "Con người"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "Please select at least one approver."
+msgstr "Vui lòng chọn ít nhất một người phê duyệt."
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_list
+msgid "Record"
+msgstr "Bản ghi"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Record '%s' submitted by %s requires your approval."
+msgstr "Bản ghi '%s' được gửi bởi %s cần có sự chấp thuận của bạn."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_form
+#, python-format
+msgid "Reject"
+msgstr "Từ chối"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__reject_server_action_id
+msgid "Reject Server Action"
+msgstr "Từ chối hành động của máy chủ"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#: model:ir.model.fields.selection,name:approval_center.selection__approval_request__state__rejected
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_search
+#, python-format
+msgid "Rejected"
+msgstr "Bị từ chối"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__rejected_by_id
+msgid "Rejected By"
+msgstr "Bị từ chối bởi"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__requester_id
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_search
+msgid "Requester"
+msgstr "Người yêu cầu"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__require_all_approvers
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__require_all_approvers
+msgid "Require All Approvers"
+msgstr "Yêu cầu tất cả người phê duyệt"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__res_id
+msgid "Res"
+msgstr ""
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_config_form
+msgid "Reset to Draft"
+msgstr "Đặt lại về Bản nháp"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_config_form
+msgid "Resetting will remove the injected view. Continue?"
+msgstr "Việc đặt lại sẽ xóa chế độ xem được chèn. Tiếp tục?"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__activity_user_id
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__activity_user_id
+msgid "Responsible User"
+msgstr "Người dùng có trách nhiệm"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_search
+msgid "Search Approval Requests"
+msgstr "Yêu cầu phê duyệt tìm kiếm"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "Selected view does not belong to the selected model."
+msgstr "Chế độ xem đã chọn không thuộc về mô hình đã chọn."
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_form
+msgid "Source"
+msgstr "Nguồn"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__res_name
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_form
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_search
+#, python-format
+msgid "Source Record"
+msgstr "Bản ghi nguồn"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Source model no longer exists in the system."
+msgstr "Mô hình nguồn không còn tồn tại trong hệ thống."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Source record has been deleted."
+msgstr "Bản ghi nguồn đã bị xóa."
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__state
+#: model:ir.model.fields,field_description:approval_center.field_approval_request__state
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_search
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: approval_center
+#: model:ir.model.fields,help:approval_center.field_approval_config__activity_state
+#: model:ir.model.fields,help:approval_center.field_approval_request__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__submit_condition_domain
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_config_form
+msgid "Submit Condition"
+msgstr "Điều kiện trình"
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__submit_server_action_id
+msgid "Submit Server Action"
+msgstr "Gửi hành động máy chủ"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "Submit for Approval"
+msgstr "Gửi để phê duyệt"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_search
+msgid "Submitted by Me"
+msgstr "Được gửi bởi Tôi"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_config_form
+msgid "Target"
+msgstr "Mục tiêu"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid ""
+"The record does not meet the conditions to submit for approval:\n"
+"%s"
+msgstr ""
+"Bản ghi không đáp ứng điều kiện để gửi phê duyệt:\n"
+"%s"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "This request is no longer waiting for approval."
+msgstr "Yêu cầu này không còn chờ phê duyệt nữa."
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_form
+msgid "Timing"
+msgstr "Thời gian"
+
+#. module: approval_center
+#: model:ir.ui.menu,name:approval_center.approval_request_pending_menu
+msgid "To Approve"
+msgstr "Phê duyệt"
+
+#. module: approval_center
+#: model:ir.model.fields,help:approval_center.field_approval_config__activity_exception_decoration
+#: model:ir.model.fields,help:approval_center.field_approval_request__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Loại hoạt động ngoại lệ trên bản ghi."
+
+#. module: approval_center
+#: model:ir.model.fields,field_description:approval_center.field_approval_config__view_approvals_server_action_id
+msgid "View Approvals Server Action"
+msgstr "Xem phê duyệt Hành động của máy chủ"
+
+#. module: approval_center
+#: model:ir.model.fields.selection,name:approval_center.selection__approval_request__state__waiting
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_search
+msgid "Waiting"
+msgstr "Chờ phê duyệt"
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_request_search
+msgid "Waiting for My Approval"
+msgstr "Đang chờ phê duyệt của tôi"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "You are not an approver for this request."
+msgstr "Bạn không phải là người phê duyệt yêu cầu này."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "You are not authorized to approve this record."
+msgstr "Bạn không được phép phê duyệt bản ghi này."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "You are not authorized to reject this record."
+msgstr "Bạn không được phép từ chối bản ghi này."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "You have already approved this request."
+msgstr "Bạn đã phê duyệt yêu cầu này."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "Your approval request for '%s' has been rejected by %s."
+msgstr "Yêu cầu phê duyệt của bạn cho '%s' đã bị %s từ chối."
+
+#. module: approval_center
+#: model_terms:ir.ui.view,arch_db:approval_center.view_approval_config_form
+msgid "e.g. Purchase Order Approval"
+msgstr "ví dụ: Phê duyệt đơn đặt hàng"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_config.py:0
+#: code:addons/custom_addons/approval_center/models/approval_config.py:0
+#, python-format
+msgid "• %s: must be '%s'"
+msgstr "• %s: phải là '%s'"
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "✅ Request approved by %s."
+msgstr "✅ Yêu cầu được %s phê duyệt."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid "❌ Request rejected by %s."
+msgstr "❌ Yêu cầu bị từ chối bởi %s."
+
+#. module: approval_center
+#. odoo-python
+#: code:addons/approval_center/models/approval_request.py:0
+#: code:addons/custom_addons/approval_center/models/approval_request.py:0
+#, python-format
+msgid ""
+"📋 New approval request for <b>%s</b> (record: %s) submitted by "
+"%s.<br/>Approvers: %s"
+msgstr ""
+"📋 Yêu cầu phê duyệt mới cho <b>%s</b> (bản ghi: %s) đã được gửi bởi %s.\n"
+"\n"
+"\n"
+"Người phê duyệt: %s"

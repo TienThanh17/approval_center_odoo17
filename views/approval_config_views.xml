@@ -10,8 +10,10 @@
                 <field name="view_id"/>
                 <field name="require_all_approvers" widget="boolean_toggle"/>
                 <field name="approver_ids" widget="many2many_tags"/>
-                <field name="state" decoration-success="state == 'confirmed'"
-                       decoration-muted="state == 'draft'" widget="badge"/>
+                <field name="state"
+                       decoration-success="state == 'confirmed'"
+                       decoration-muted="state == 'draft'"
+                       widget="badge"/>
             </tree>
         </field>
     </record>
@@ -27,32 +29,65 @@
                     <button name="action_draft" type="object" string="Reset to Draft"
                             class="btn-secondary" invisible="state != 'confirmed'"
                             confirm="Resetting will remove the injected view. Continue?"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,confirmed"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
                         <label for="name"/>
                         <h1>
-                            <field name="name" placeholder="e.g. Purchase Order Approval"/>
+                            <field name="name"
+                                   placeholder="e.g. Purchase Order Approval"/>
                         </h1>
                     </div>
-                    <group>
-                        <group string="Target">
-                            <field name="model_id" readonly="state == 'confirmed'"/>
-                            <!-- FIX [Technical]: view_id domain động theo model_id -->
+
+                    <!-- ── Target ──────────────────────────────────────── -->
+                    <group string="Target">
+                        <group>
+                            <field name="model_id"
+                                   readonly="state == 'confirmed'"/>
                             <field name="view_id"
                                    domain="[('type', '=', 'form'), ('model', '=', model_id_name)]"
-                                   invisible="not model_id" readonly="state == 'confirmed'"/>
+                                   invisible="not model_id"
+                                   readonly="state == 'confirmed'"/>
                             <field name="model_id_name" invisible="1"/>
                         </group>
-                        <group string="Approvers">
-                            <field name="approver_ids" widget="many2many_tags" readonly="state == 'confirmed'"
+                        <group>
+                            <field name="approver_ids"
+                                   widget="many2many_tags"
+                                   readonly="state == 'confirmed'"
                                    options="{'no_create': True}"/>
-                            <!-- FIX [Missing]: require_all_approvers -->
-                            <field name="require_all_approvers" widget="boolean_toggle" readonly="state == 'confirmed'"/>
+                            <field name="require_all_approvers"
+                                   widget="boolean_toggle"
+                                   readonly="state == 'confirmed'"/>
                         </group>
                     </group>
-                    <group string="Generated Metadata" invisible="state != 'confirmed'">
+
+                    <!-- ── Submit Condition ────────────────────────────── -->
+                    <group string="Submit Condition"
+                           invisible="not model_id">
+                        <field name="submit_condition_domain"
+                               widget="domain"
+                               options="{'model': 'model_id_name'}"
+                               readonly="state == 'confirmed'"
+                               string="Condition"
+                               colspan="2"/>
+                    </group>
+
+                    <!-- ── POST-APPROVAL UPDATES ───────────────────────────── -->
+                    <group string="POST-APPROVAL UPDATES"
+                           invisible="not model_id">
+                        <field name="approve_condition_domain"
+                               widget="domain"
+                               options="{'model': 'model_id_name'}"
+                               readonly="state == 'confirmed'"
+                               string="Fields to Update"
+                               colspan="2"/>
+                    </group>
+
+                    <!-- ── Generated Metadata ──────────────────────────── -->
+                    <group string="Generated Metadata"
+                           invisible="state != 'confirmed'">
                         <field name="submit_server_action_id" readonly="1"/>
                         <field name="approve_server_action_id" readonly="1"/>
                         <field name="reject_server_action_id" readonly="1"/>
@@ -61,7 +96,8 @@
                     </group>
                 </sheet>
                 <div class="oe_chatter">
-                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="message_follower_ids"
+                           groups="base.group_user"/>
                     <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </div>

@@ -1,6 +1,6 @@
 {
     "name": "ADEC SOL Approval Center",
-    "summary": "Generic, reusable approval workflow applicable to any model",
+    "summary": "Quy trình phê duyệt chung, có thể tái sử dụng, áp dụng cho mọi mô hình.",
     "version": "17.0.2.0.0",
     "category": "Tools",
     'images': ['static/description/icon.png'],

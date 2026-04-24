@@ -47,7 +47,7 @@ class ApprovalRequest(models.Model):
     config_id = fields.Many2one(
         "approval.config",
         string="Configuration",
-        ondelete="set null",
+        ondelete="cascade",
         index=True,
     )
     name = fields.Char(related="config_id.name", string="Approval Name", store=True)
@@ -240,8 +240,14 @@ class ApprovalRequest(models.Model):
         })
         self.activity_ids.action_done()
 
-        # Sync lên record nguồn
+        # Sync state lên record nguồn
         self._sync_state_to_source("approved", approved_by_names)
+
+        # Áp dụng approve_condition_domain: write các giá trị từ domain lên record nguồn
+        if self.config_id and self.model and self.res_id and self.model in self.env:
+            source_record = self.env[self.model].browse(self.res_id)
+            if source_record.exists():
+                self.config_id._apply_approve_condition(source_record)
 
         self.message_post(
             body=_("✅ Request approved by %s.") % user.name,

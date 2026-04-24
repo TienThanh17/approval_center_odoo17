@@ -12,7 +12,8 @@ def uninstall_hook(env):
     actions = (
         configs.mapped("submit_server_action_id")
         | configs.mapped("approve_server_action_id")
-        | configs.mapped("reject_server_action_id")  # FIX: thêm reject action
+        | configs.mapped("reject_server_action_id")
+        | configs.mapped("view_approvals_server_action_id")
     )
     views = configs.mapped("inherit_view_id")
 
@@ -23,10 +24,11 @@ def uninstall_hook(env):
 
     # Quét orphan (đề phòng ondelete='set null' đã tách liên kết)
     orphan_actions = env["ir.actions.server"].sudo().with_context(active_test=False).search([
-        "|", "|",
+        "|", "|", "|",
         ("name", "=like", "AdecSol Submit Approval (%)"),
         ("name", "=like", "AdecSol Approve (%)"),
-        ("name", "=like", "AdecSol Reject (%)"),  # FIX: thêm reject
+        ("name", "=like", "AdecSol Reject (%)"),
+        ("name", "=like", "AdecSol View Approvals (%)"),
     ])
     if orphan_actions:
         orphan_actions.unlink()
@@ -36,3 +38,11 @@ def uninstall_hook(env):
     ])
     if orphan_views:
         orphan_views.unlink()
+
+    # Xóa các field động đã inject vào các model khác
+    # Lưu ý: FIELD_STATE, FIELD_IS_APPROVER, FIELD_APPROVED_BY được định nghĩa trong approval_config.py
+    dynamic_fields = env["ir.model.fields"].sudo().search([
+        ("name", "in", ["x_approval_state", "x_approval_is_approver", "x_approval_approved_by"])
+    ])
+    if dynamic_fields:
+        dynamic_fields.unlink()
