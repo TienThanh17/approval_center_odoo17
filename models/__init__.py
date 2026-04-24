@@ -2,4 +2,3 @@
 
 from . import approval_config
 from . import approval_request
-from . import base_inherit
